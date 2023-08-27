@@ -43,7 +43,6 @@ export function Home() {
         },
       ]
     );
-    console.log(`Remove participant ${name}`);
   };
 
   return (
