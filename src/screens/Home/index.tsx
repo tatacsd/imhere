@@ -34,7 +34,12 @@ export function Home() {
         },
         {
           text: 'Yes',
-          onPress: () => Alert.alert('Participant removed'),
+          onPress: () => {
+            setParticipants((prevState) =>
+              prevState.filter((participant) => participant !== name)
+            );
+            Alert.alert('Success!', `${name} was removed from the list.`);
+          },
         },
       ]
     );
