@@ -1,4 +1,5 @@
 import {
+  Alert,
   FlatList,
   Text,
   TextInput,
@@ -28,10 +29,28 @@ export function Home() {
   ];
 
   const handleParticipantAdd = () => {
-    console.log('Add participant');
+    if (participants.includes('Thays')) {
+      return Alert.alert('Ops!', 'This participant is already in the list.');
+    }
+
+    console.log('Add participant Thays');
   };
 
   const handleParticipantRemove = (name: string) => {
+    Alert.alert(
+      'Remove participant',
+      `Are you sure you want to remove ${name}?`,
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        {
+          text: 'Yes',
+          onPress: () => Alert.alert('Participant removed'),
+        },
+      ]
+    );
     console.log(`Remove participant ${name}`);
   };
 
